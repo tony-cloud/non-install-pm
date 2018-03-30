@@ -13,6 +13,8 @@ then
 echo "error: operation not allowed."
 exit -1
 else
- /system/bin/pm_bak "$cmdstr"
+base=/system
+export CLASSPATH=$base/framework/pm.jar
+exec app_process $base/bin com.android.commands.pm.Pm $cmdstr
 fi
-exit 0
+
